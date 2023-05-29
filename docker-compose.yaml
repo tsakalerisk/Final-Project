@@ -1,13 +1,18 @@
 services:
 
-  # backend:
-  #   build: backend
-  #   restart: always
-  #   ports:
-  #    - "8090:8080"
-  #   networks:
-  #     - react-spring
-  #     - spring-mysql
+  backend:
+    build: backend
+    # restart: always
+    ports:
+     - 5000:5000
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=final_project
+    networks:
+      - react-spring
+      - spring-mysql
   
   db:
     image: mysql:latest
@@ -33,8 +38,8 @@ services:
       - ./frontend/public:/code/public
     networks:
       - react-spring
-    # depends_on:
-    #   - backend
+    depends_on:
+      - backend
     expose:
       - 3306
       - 33060
