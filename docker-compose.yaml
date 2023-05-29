@@ -22,6 +22,14 @@ services:
       - ./db/final_project_db.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - spring-mysql
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - spring-mysql
 
   frontend:
     build:
