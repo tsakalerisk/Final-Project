@@ -2,26 +2,22 @@ services:
 
   backend:
     build: backend
-    # restart: always
+    restart: always
     ports:
      - 5000:5000
-    environment:
-      - MYSQL_HOST=db
-      - MYSQL_USERNAME=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_DATABASE=final_project
+    env_file:
+      - .env
     networks:
       - react-spring
       - spring-mysql
   
   db:
     image: mysql:latest
-    environment:
-      - MYSQL_DATABASE=final_project
-      - MYSQL_ROOT_PASSWORD=root
+    env_file:
+      - .env
     restart: always
     ports:
-      - '3306:3306'
+      - 3306:3306
     volumes:
       - ./db/final_project_db.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
