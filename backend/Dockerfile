@@ -1,8 +1,6 @@
-FROM maven:3.9.2-eclipse-temurin-20-alpine AS build
+FROM maven:3.9.2-eclipse-temurin-20-alpine
 WORKDIR /usr/src/mymaven
 COPY ./pom.xml .
-# load and cache dependencies
-RUN mvn verify --fail-never
-COPY . .
+COPY ./src ./src
 EXPOSE 5000
-CMD mvn spring-boot:run
+CMD ["mvn", "spring-boot:run"]

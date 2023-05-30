@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
      - 5000:5000
+    volumes:
+      - ~/.m2:/root/.m2
     env_file:
       - .env
     networks:
