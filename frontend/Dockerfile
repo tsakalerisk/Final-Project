@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1.4
 
-FROM --platform=$BUILDPLATFORM node:lts AS development
+FROM --platform=$BUILDPLATFORM node:lts-slim AS development
 WORKDIR /code
 COPY package.json .
 RUN npm i
 COPY . .
-EXPOSE 3000
+EXPOSE 80
 CMD npm run dev
 
 

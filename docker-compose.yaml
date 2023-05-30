@@ -44,9 +44,6 @@ services:
       - react-spring
     depends_on:
       - backend
-    expose:
-      - 3306
-      - 33060
 
 volumes:
   db:
