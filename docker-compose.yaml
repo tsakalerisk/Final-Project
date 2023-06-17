@@ -1,56 +1,56 @@
 services:
+    backend:
+        build: backend
+        restart: always
+        ports:
+            - 5000:5000
+        volumes:
+            - ~/.m2:/root/.m2
+        env_file:
+            - .env
+        networks:
+            - react-spring
+            - spring-mysql
 
-  backend:
-    build: backend
-    restart: always
-    ports:
-     - 5000:5000
-    volumes:
-      - ~/.m2:/root/.m2
-    env_file:
-      - .env
-    networks:
-      - react-spring
-      - spring-mysql
-  
-  db:
-    image: mysql:latest
-    env_file:
-      - .env
-    restart: always
-    ports:
-      - 3306:3306
-    volumes:
-      - ./db/final_project_db.sql:/docker-entrypoint-initdb.d/init.sql
-    networks:
-      - spring-mysql
-  
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - spring-mysql
+    db:
+        image: mysql:latest
+        env_file:
+            - .env
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+            - ./db/final_project_db.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./db/mock_data:/var/lib/mysql-files/
+        networks:
+            - spring-mysql
 
-  frontend:
-    build:
-      context: frontend
-      target: development
-    ports:
-      - 3000:80
-    volumes:
-      - ./frontend/src:/code/src
-      - ./frontend/public:/code/public
-    networks:
-      - react-spring
-    depends_on:
-      - backend
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        networks:
+            - spring-mysql
+
+    frontend:
+        build:
+            context: frontend
+            target: development
+        ports:
+            - 3000:80
+        volumes:
+            - ./frontend/src:/code/src
+            - ./frontend/public:/code/public
+        networks:
+            - react-spring
+        depends_on:
+            - backend
 
 volumes:
-  db:
-    driver: local
+    db:
+        driver: local
 
 networks:
-  react-spring: {}
-  spring-mysql: {}
+    react-spring: {}
+    spring-mysql: {}
