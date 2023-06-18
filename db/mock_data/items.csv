@@ -1,11 +1,11 @@
-Name, Price, ImageUrl
-'Raspberry Pi 4 Model B 4GB', 79.90, https://d.scdn.gr/images/sku_main_images/019212/19212716/xlarge_20190627125506_raspberry_pi_4_model_b_4gb.jpeg
-'Huawei P60 Pro Dual SIM (8GB/256GB)', 1157.10, https://a.scdn.gr/images/sku_main_images/042345/42345115/xlarge_20230512110716_huawei_p60_pro_dual_sim_8gb_256gb_mayro.jpeg
-'Nikon Mirrorless Camera Z 6II Full Frame Body Black', 1499, https://d.scdn.gr/images/sku_main_images/030501/30501443/xlarge_20220225101329_nikon_mirrorless_fotografiki_michani_z_6ii_full_frame_body_black.jpeg
-'JBL Tune 510BT Wireless Headphones', 41.90, https://a.scdn.gr/images/sku_main_images/027239/27239772/xlarge_20211122155101_jbl_tune_510bt_asyrmata_on_ear_akoustika_mayra.jpeg
-'Sony DualSense Wireless Gamepad', 61.90, https://b.scdn.gr/images/sku_main_images/023615/23615489/xlarge_20200612174424_sony_dualsense_controller_ps5.jpeg
-'HyperX Alloy Origins Gaming Mechanical Keyboard', 105.75, https://c.scdn.gr/images/sku_main_images/021943/21943771/xlarge_20200211132737_hyperx_alloy_origins.jpeg
-'Razer DeathAdder Essential Gaming Mouse', 28.19, https://a.scdn.gr/images/sku_main_images/017041/17041810/xlarge_20190111170930_razer_deathadder_essential.jpeg
-'MSI GeForce GTX 1660 Super 6GB GDDR6 Ventus XS OC Graphics Card', 234.81, https://c.scdn.gr/images/sku_main_images/020852/20852456/xlarge_20191106134613_msi_geforce_gtx_1660_super_6gb_ventus_oc_v375_279r.jpeg
-'Corsair Vengeance RGB Pro 32GB DDR4 RAM', 91.95, https://a.scdn.gr/images/sku_main_images/021377/21377044/xlarge_20211102145848_corsair_vengeance_rgb_pro_32gb_ddr4_ram_me_2_modules_2x16gb_kai_sychnotita_3600mhz_gia_desktop_cmw32gx4m2d3600c18.jpeg
-'AMD Ryzen 5 5600G 3.9GHz', 117.86, https://a.scdn.gr/images/sku_main_images/030374/30374900/xlarge_20220210135540_amd_ryzen_5_5600g_3_9ghz_epexergastis_6_pyrinon_gia_socket_am4_se_kouti_me_psyktra.jpeg
+Name,Price,ImageUrl
+'Raspberry Pi 4 Model B 4GB',79.90,https://d.scdn.gr/images/sku_main_images/019212/19212716/xlarge_20190627125506_raspberry_pi_4_model_b_4gb.jpeg
+'Huawei P60 Pro Dual SIM (8GB/256GB)',1157.10,https://a.scdn.gr/images/sku_main_images/042345/42345115/xlarge_20230512110716_huawei_p60_pro_dual_sim_8gb_256gb_mayro.jpeg
+'Nikon Mirrorless Camera Z 6II Full Frame Body Black',1499,https://d.scdn.gr/images/sku_main_images/030501/30501443/xlarge_20220225101329_nikon_mirrorless_fotografiki_michani_z_6ii_full_frame_body_black.jpeg
+'JBL Tune 510BT Wireless Headphones',41.90,https://a.scdn.gr/images/sku_main_images/027239/27239772/xlarge_20211122155101_jbl_tune_510bt_asyrmata_on_ear_akoustika_mayra.jpeg
+'Sony DualSense Wireless Gamepad',61.90,https://b.scdn.gr/images/sku_main_images/023615/23615489/xlarge_20200612174424_sony_dualsense_controller_ps5.jpeg
+'HyperX Alloy Origins Gaming Mechanical Keyboard',105.75,https://c.scdn.gr/images/sku_main_images/021943/21943771/xlarge_20200211132737_hyperx_alloy_origins.jpeg
+'Razer DeathAdder Essential Gaming Mouse',28.19,https://a.scdn.gr/images/sku_main_images/017041/17041810/xlarge_20190111170930_razer_deathadder_essential.jpeg
+'MSI GeForce GTX 1660 Super 6GB GDDR6 Ventus XS OC Graphics Card',234.81,https://c.scdn.gr/images/sku_main_images/020852/20852456/xlarge_20191106134613_msi_geforce_gtx_1660_super_6gb_ventus_oc_v375_279r.jpeg
+'Corsair Vengeance RGB Pro 32GB DDR4 RAM',91.95,https://a.scdn.gr/images/sku_main_images/021377/21377044/xlarge_20211102145848_corsair_vengeance_rgb_pro_32gb_ddr4_ram_me_2_modules_2x16gb_kai_sychnotita_3600mhz_gia_desktop_cmw32gx4m2d3600c18.jpeg
+'AMD Ryzen 5 5600G 3.9GHz',117.86,https://a.scdn.gr/images/sku_main_images/030374/30374900/xlarge_20220210135540_amd_ryzen_5_5600g_3_9ghz_epexergastis_6_pyrinon_gia_socket_am4_se_kouti_me_psyktra.jpeg
