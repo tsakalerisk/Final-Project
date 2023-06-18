@@ -3,6 +3,7 @@ package com.techpro.project.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -35,5 +36,6 @@ public class Order {
     private List<OrderDetail> orderDetails;
 
     @Column(name = "OrderDate")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime;
 }
