@@ -1,5 +1,6 @@
 services:
     backend:
+        container_name: backend
         build: backend
         restart: always
         ports:
@@ -13,6 +14,7 @@ services:
             - spring-mysql
 
     db:
+        container_name: db
         image: mysql:latest
         env_file:
             - .env
@@ -26,6 +28,7 @@ services:
             - spring-mysql
 
     adminer:
+        container_name: adminer
         image: adminer
         restart: always
         ports:
@@ -34,6 +37,7 @@ services:
             - spring-mysql
 
     frontend:
+        container_name: frontend
         build:
             context: frontend
             target: development
