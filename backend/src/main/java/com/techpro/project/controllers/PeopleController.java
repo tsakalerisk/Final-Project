@@ -38,10 +38,10 @@ public class PeopleController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPerson(Person person, UriComponentsBuilder ucb) {
+    public ResponseEntity<Person> createPerson(Person person, UriComponentsBuilder ucb) {
         Person savedPerson = peopleService.createPerson(person);
         URI location = ucb.path("/people/{id}").buildAndExpand(savedPerson.getId()).toUri();
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(savedPerson);
     }
 
     @DeleteMapping("/{id}")

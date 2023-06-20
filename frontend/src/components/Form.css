@@ -1,0 +1,10 @@
+form input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    margin-top: .3rem;
+}
+
+form label {
+    font-size: 1.4rem;
+}

@@ -40,12 +40,11 @@ public class OrdersController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createOrder(Integer personId, UriComponentsBuilder ucb) {
-        Order savedOrder;
+    public ResponseEntity<Order> createOrder(Integer personId, UriComponentsBuilder ucb) {
         try {
-            savedOrder = orderService.createOrder(personId);
+            Order savedOrder = orderService.createOrder(personId);
             URI location = ucb.path("/orders/{id}").buildAndExpand(savedOrder.getId()).toUri();
-            return ResponseEntity.created(location).build();
+            return ResponseEntity.created(location).body(savedOrder);
         } catch (NotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }

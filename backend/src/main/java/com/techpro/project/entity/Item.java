@@ -25,6 +25,6 @@ public class Item {
     @Column(name = "Price")
     private BigDecimal price;
 
-    @Column(name = "ImageUrl")
+    @Column(name = "ImageUrl", columnDefinition = "TEXT")
     private String imageUrl;
 }

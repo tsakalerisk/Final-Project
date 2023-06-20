@@ -30,17 +30,10 @@ const HomePage = () => {
                         />
                     ))}
                 </div>
-                <div className="sticky top-10 flex-grow basis-4/12 overflow-hidden">
+                <div className="sticky top-10 flex-grow basis-4/12 overflow-hidden shadow-md">
                     <ShoppingCart
-                        cartItems={cartItems}
-                        onItemQuantityChnage={(item, value) => {
-                            setCartItems(new Map(cartItems.set(item, value)))
-                        }}
-                        onRemoveItem={item => {
-                            //delete cartItems[item]
-                            cartItems.delete(item)
-                            setCartItems(new Map(cartItems))
-                        }}
+                        cartState={[cartItems, setCartItems]}
+                        showCheckoutButton={!!cartItems.size}
                     />
                 </div>
             </div>

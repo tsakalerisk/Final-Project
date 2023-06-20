@@ -5,19 +5,18 @@ import CartItem from './CartItem'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
-    cartItems: Map<Item, number>
-    onItemQuantityChnage(item: Item, value: number): void
-    onRemoveItem(item: Item): void
+    cartState: [
+        Map<Item, number>,
+        React.Dispatch<React.SetStateAction<Map<Item, number>>>
+    ]
+    showCheckoutButton?: boolean
 }
 
-const ShoppingCart = ({
-    cartItems,
-    onItemQuantityChnage,
-    onRemoveItem,
-}: Props) => {
+const ShoppingCart = ({ cartState, showCheckoutButton }: Props) => {
+    const [cartItems, setCartItems] = cartState
     const navigate = useNavigate()
     return (
-        <div className="bg-slate-100 px-10 py-4 text-2xl text-left rounded-md shadow-md">
+        <div className="bg-slate-100 px-10 py-4 text-2xl text-left rounded-md">
             <h2 className="flex items-center text-[1.6rem] gap-2 my-2">
                 <MdShoppingCart />
                 Your cart
@@ -30,9 +29,14 @@ const ShoppingCart = ({
                             itemName={item.name}
                             quantity={quantity}
                             onQuantityChange={value =>
-                                onItemQuantityChnage(item, value)
+                                setCartItems(
+                                    new Map(cartItems.set(item, value))
+                                )
                             }
-                            onRemove={() => onRemoveItem(item)}
+                            onRemove={() => {
+                                cartItems.delete(item)
+                                setCartItems(new Map(cartItems))
+                            }}
                         />
                     ))
                 ) : (
@@ -55,14 +59,18 @@ const ShoppingCart = ({
                     &euro;
                 </span>
             </div>
-            <hr className="bg-slate-300" />
-            {!!cartItems.size && (
-                <button
-                    className="w-full my-2 text-xl bg-slate-300 hover:brightness-95 transition-all duration-100"
-                    onClick={() => navigate('/')}
-                >
-                    Proceed to Checkout
-                </button>
+            {showCheckoutButton && (
+                <>
+                    <hr className="bg-slate-300" />
+                    <button
+                        className="w-full my-2 text-xl bg-slate-300 hover:brightness-95 transition-all duration-100"
+                        onClick={() =>
+                            navigate('/checkout', { state: { cartItems } })
+                        }
+                    >
+                        Proceed to Checkout
+                    </button>
+                </>
             )}
         </div>
     )
