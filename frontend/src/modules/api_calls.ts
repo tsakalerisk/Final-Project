@@ -5,18 +5,23 @@ const fetchFromBackend = async (
     options?: RequestInit | undefined
 ) => {
     const response = await fetch(`${BACKEND}${path}`, options)
-    const data = await response.json()
     if (response.ok) {
-        return data
+        const body = await response.text()
+        if (body) {
+            return JSON.parse(body)
+        } else {
+            return
+        }
     } else {
-        throw new Error(data.message)
+        const errorBody = await response.json()
+        throw new Error(errorBody.message)
     }
 }
 
 const getItems = async () => await fetchFromBackend(`/items`)
 
 const postPerson = async (person: FormData) =>
-    await fetchFromBackend(`/people`, {
+    await fetchFromBackend('/people', {
         method: 'POST',
         body: person,
     })
@@ -24,7 +29,7 @@ const postPerson = async (person: FormData) =>
 const postOrder = async (personId: number) => {
     const formData = new FormData()
     formData.append('personId', personId.toString())
-    return await fetchFromBackend(`/orders`, {
+    return await fetchFromBackend('/orders', {
         method: 'POST',
         body: formData,
     })
@@ -44,4 +49,16 @@ const addItemToOrder = async (
     })
 }
 
-export { getItems, postPerson, postOrder, addItemToOrder }
+const getOrders = async () => await fetchFromBackend('/orders')
+
+const deleteOrder = async (orderId: number) =>
+    await fetchFromBackend(`/orders/${orderId}`, { method: 'DELETE' })
+
+export {
+    getItems,
+    postPerson,
+    postOrder,
+    addItemToOrder,
+    getOrders,
+    deleteOrder,
+}

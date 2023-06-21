@@ -89,8 +89,8 @@ const SearchBar = () => {
             />
             <CgShortcut className="inline h-6 w-6 text-slate-500" />
             {resultsVisible && filteredItems.length > 0 && (
-                <div className="absolute right-0 left-0 top-full text-[.3rem] z-10 bg-slate-100 rounded border border-slate-500">
-                    {filteredItems.map(x => (
+                <div className="absolute right-0 left-0 top-full text-[.3rem] z-10 bg-slate-100 rounded-bl rounded-br border border-slate-500">
+                    {filteredItems.slice(0, 5).map(x => (
                         <SearchResult item={x} key={x.id} className="h-16" />
                     ))}
                 </div>

@@ -4,6 +4,7 @@ import Header from './components/Header'
 import HomePage from './components/HomePage'
 import Checkout from './components/Checkout'
 import Transition from './components/Transition'
+import AdminPage from './components/AdminPage'
 
 function App() {
     return (
@@ -14,7 +15,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/transition" element={<Transition />} />
-                    <Route path="/admin" element={'admin page'} />
+                    <Route path="/admin" element={<AdminPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
