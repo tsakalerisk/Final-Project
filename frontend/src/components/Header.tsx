@@ -10,7 +10,7 @@ const Header = () => {
                 Final Project
             </h1>
             <NavBar />
-            <SearchBar/>
+            <SearchBar />
         </div>
     )
 }

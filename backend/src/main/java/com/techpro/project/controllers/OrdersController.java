@@ -51,12 +51,12 @@ public class OrdersController {
     }
 
     @PostMapping("/{orderId}/add_item")
-    public ResponseEntity<Void> addItemToOrder(@PathVariable Integer orderId, Integer itemId, Integer quantity,
+    public ResponseEntity<Order> addItemToOrder(@PathVariable Integer orderId, Integer itemId, Integer quantity,
             UriComponentsBuilder ucb) {
         try {
-            orderService.addItemToOrder(orderId, itemId, quantity);
+            Order order = orderService.addItemToOrder(orderId, itemId, quantity);
             URI location = ucb.path("/orders/{id}").buildAndExpand(orderId).toUri();
-            return ResponseEntity.created(location).build();
+            return ResponseEntity.created(location).body(order);
         } catch (NotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }

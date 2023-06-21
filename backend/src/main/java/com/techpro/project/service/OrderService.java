@@ -14,6 +14,6 @@ public interface OrderService {
     public List<Order> getOrders();
     public Optional<Order> getOrderById(Integer id);
     public Order createOrder(Integer personId) throws NotFoundException;
-    public void addItemToOrder(Integer orderId, Integer itemId, Integer quantity) throws NotFoundException, org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+    public Order addItemToOrder(Integer orderId, Integer itemId, Integer quantity) throws NotFoundException;
     public void deleteOrderById(Integer id);
 }
