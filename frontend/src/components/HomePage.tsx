@@ -16,9 +16,9 @@ const HomePage = () => {
         )
     }
     return (
-        <div className="p-8">
-            <h1 className="text-4xl text-left pl-6">Our products</h1>
-            <div className="flex items-start justify-center gap-12 w-10/12 mx-auto my-5">
+        <div className="page">
+            <h1 className="title">Our products</h1>
+            <div className="content flex-row items-start justify-center">
                 <div className="flex-grow basis-8/12">
                     {items.map(x => (
                         <ItemCard

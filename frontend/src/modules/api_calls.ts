@@ -54,6 +54,11 @@ const getOrders = async () => await fetchFromBackend('/orders')
 const deleteOrder = async (orderId: number) =>
     await fetchFromBackend(`/orders/${orderId}`, { method: 'DELETE' })
 
+const getPeople = async () => await fetchFromBackend('/people')
+
+const deletePerson = async (personId: number) =>
+    await fetchFromBackend(`/people/${personId}`, { method: 'DELETE' })
+
 export {
     getItems,
     postPerson,
@@ -61,4 +66,6 @@ export {
     addItemToOrder,
     getOrders,
     deleteOrder,
+    getPeople,
+    deletePerson
 }

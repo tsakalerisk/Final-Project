@@ -26,9 +26,9 @@ const Checkout = () => {
         }
     }
     return (
-        <div className="p-8">
-            <h1 className="text-4xl text-left pl-6">Checkout</h1>
-            <div className="flex items-start justify-center gap-12 w-10/12 mx-auto my-5">
+        <div className="page">
+            <h1 className="title">Checkout</h1>
+            <div className="content flex-row items-start justify-center gap-12">
                 <div className="flex-grow basis-7/12">
                     <div className="bg-slate-100 px-10 py-4 text-2xl text-left rounded-md shadow-md">
                         <Form onSubmit={submitForm} />

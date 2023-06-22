@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,16 +27,16 @@ public class Order {
     @Column(name = "OrderID")
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "PersonID")
+    @JsonIgnoreProperties("orders")
     private Person person;
 
-    @OneToMany // (mappedBy = "order")
-    @JoinColumn(name = "OrderID")
+    @OneToMany(mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("order")
     private List<OrderDetail> orderDetails;
 
     @Column(name = "OrderDate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime;
 }

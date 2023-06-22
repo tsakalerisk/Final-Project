@@ -16,7 +16,7 @@ const ShoppingCart = ({ cartState, showCheckoutButton }: Props) => {
     const [cartItems, setCartItems] = cartState
     const navigate = useNavigate()
     return (
-        <div className="bg-slate-100 px-10 py-4 text-2xl text-left rounded-md">
+        <div className="card px-10 py-4 text-2xl text-left">
             <h2 className="flex items-center text-[1.6rem] gap-2 my-2">
                 <MdShoppingCart />
                 Your cart

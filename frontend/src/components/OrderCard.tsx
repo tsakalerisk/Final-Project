@@ -9,7 +9,7 @@ interface Props {
 
 const OrderCard = ({ order, onDelete }: Props) => {
     return (
-        <div className="relative bg-slate-100 text-left px-12 py-8 text-lg  rounded-md shadow-md flex flex-col gap-4">
+        <div className="card relative text-left p-12 text-lg flex flex-col gap-4">
             <button
                 className="absolute px-4 py-2 flex items-center gap-2 right-12 border-red-600 text-red-600
                  hover:bg-red-600 hover:text-white transition-colors hover:border-transparent"

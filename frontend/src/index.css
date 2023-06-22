@@ -70,3 +70,37 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 }
+
+@layer components {
+    .page {
+        @apply flex
+        flex-col
+        items-center
+        justify-start
+        min-h-screen
+        py-12
+        px-4;
+    }
+
+    .title {
+        @apply self-start
+        text-4xl
+        pl-16
+        mb-4;
+    }
+
+    .content {
+        @apply flex
+        flex-col
+        w-10/12
+        mx-auto 
+        my-5
+        gap-12;
+    }
+
+    .card {
+        @apply bg-slate-100
+        shadow-md
+        rounded-md;
+    }
+}

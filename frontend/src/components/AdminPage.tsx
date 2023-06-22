@@ -13,9 +13,9 @@ const AdminPage = () => {
     useEffect(() => loadOrders(), [loadOrders])
 
     return (
-        <div className="p-8">
-            <h1 className="text-4xl text-left pl-6">Orders</h1>
-            <div className="flex flex-col w-7/12 mx-auto my-12 gap-6">
+        <div className="page">
+            <h1 className="title">Orders</h1>
+            <div className="content w-7/12 3xl:w-6/12">
                 {orders.map(order => (
                     <OrderCard
                         order={order}

@@ -25,7 +25,7 @@ public class OrderDetail {
     @Column(name = "OrderDetailsID")
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "OrderID")
     @JsonIgnoreProperties("orderDetails")
     private Order order;

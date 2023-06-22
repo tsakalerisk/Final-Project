@@ -8,7 +8,7 @@ interface Props {
 
 const ItemCard = ({ item, onAddToCart }: Props) => {
     return (
-        <div className="flex mx-auto h-[15em] bg-slate-100 mb-[2em] rounded-xl overflow-hidden shadow-md hover:brightness-[96%]">
+        <div className="card flex mx-auto h-[15em] mb-[2em] overflow-hidden hover:brightness-[96%]">
             <div className="flex-shrink-0 h-full w-[15em] p-[.5em] bg-white">
                 <img
                     src={item.imageUrl}

@@ -60,7 +60,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteOrderById(Integer id) {
-        orderdetailsRepository.deleteByOrderId(id);
         ordersRepository.deleteById(id);
     }
 

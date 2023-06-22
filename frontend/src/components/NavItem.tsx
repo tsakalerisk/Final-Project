@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import {NavLink } from 'react-router-dom'
 
 interface Props {
     children?: ReactNode
@@ -9,12 +9,20 @@ interface Props {
 
 const NavItem: FC<Props> = ({ children, className, to }) => {
     return (
-        <Link
+        <NavLink
             to={to}
-            className={`text-2xl font-semibold leading-6 px-7 py-2 rounded-xl text-inherit hover:bg-slate-200 ${className}`}
+            className={({ isActive }) =>
+                `text-2xl font-semibold leading-6 px-7 py-2 rounded-xl text-inherit 
+                ${
+                    isActive
+                        ? 'bg-slate-200 text-blue-600'
+                        : 'hover:bg-slate-200 hover:text-blue-600'
+                }
+                ${className}`
+            }
         >
             {children}
-        </Link>
+        </NavLink>
     )
 }
 
