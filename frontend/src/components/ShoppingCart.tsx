@@ -26,6 +26,7 @@ const ShoppingCart = ({ cartState, showCheckoutButton }: Props) => {
                 {cartItems.size ? (
                     [...cartItems.entries()].map(([item, quantity]) => (
                         <CartItem
+                            key={item.id}
                             itemName={item.name}
                             quantity={quantity}
                             onQuantityChange={value =>

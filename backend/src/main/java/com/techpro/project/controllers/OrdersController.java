@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.techpro.project.entity.Order;
 import com.techpro.project.service.OrderServiceImpl;
 
+import io.swagger.v3.oas.annotations.Operation;
 import javassist.NotFoundException;
 
 @RestController
@@ -28,17 +29,20 @@ public class OrdersController {
     @Autowired
     private OrderServiceImpl orderService;
 
+    @Operation(summary = "Get all orders")
     @GetMapping
     public ResponseEntity<List<Order>> getOrders() {
         return ResponseEntity.ok().body(orderService.getOrders());
     }
 
+    @Operation(summary = "Get order by id")
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(
                 orderService.getOrderById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
+    @Operation(summary = "Create order", description = "Creates a new order with the given personId, the date and time is set automatically")
     @PostMapping
     public ResponseEntity<Order> createOrder(Integer personId, UriComponentsBuilder ucb) {
         try {
@@ -50,6 +54,7 @@ public class OrdersController {
         }
     }
 
+    @Operation(summary = "Add item to order", description = "Adds the specified amount of the given item to the order with the given orderId")
     @PostMapping("/{orderId}/add_item")
     public ResponseEntity<Order> addItemToOrder(@PathVariable Integer orderId, Integer itemId, Integer quantity,
             UriComponentsBuilder ucb) {
@@ -62,6 +67,7 @@ public class OrdersController {
         }
     }
 
+    @Operation(summary = "Delete order by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrderById(@PathVariable Integer id) {
         if (!orderService.getOrderById(id).isPresent()) {

@@ -19,6 +19,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.techpro.project.entity.Item;
 import com.techpro.project.service.ItemServiceImpl;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/items")
@@ -26,17 +28,20 @@ public class ItemsController {
     @Autowired
     private ItemServiceImpl itemService;
 
+    @Operation(summary = "Get all items")
     @GetMapping
     public ResponseEntity<List<Item>> getItems() {
         return ResponseEntity.ok().body(itemService.getItems());
     }
 
+    @Operation(summary = "Get item by id")
     @GetMapping("/{id}")
     public ResponseEntity<Item> getItemById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(
                 itemService.getItemById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
+    @Operation(summary = "Create/update item")
     @PostMapping
     public ResponseEntity<Item> createItem(Item item, UriComponentsBuilder ucb) {
         Item savedItem = itemService.createItem(item);
@@ -44,6 +49,7 @@ public class ItemsController {
         return ResponseEntity.created(location).body(savedItem);
     }
 
+    @Operation(summary = "Delete item by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteItemById(@PathVariable Integer id) {
         if (!itemService.getItemById(id).isPresent()) {

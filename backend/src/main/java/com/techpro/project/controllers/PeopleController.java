@@ -19,6 +19,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.techpro.project.entity.Person;
 import com.techpro.project.service.PeopleServiceImpl;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/people")
@@ -26,17 +28,20 @@ public class PeopleController {
     @Autowired
     private PeopleServiceImpl peopleService;
 
+    @Operation(summary = "Get all people")
     @GetMapping
     public ResponseEntity<List<Person>> getPeople() {
         return ResponseEntity.ok().body(peopleService.getPeople());
     }
 
+    @Operation(summary = "Get person by id")
     @GetMapping("/{id}")
     public ResponseEntity<Person> getPersonById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(
                 peopleService.getPersonById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
+    @Operation(summary = "Create/update person")
     @PostMapping
     public ResponseEntity<Person> createPerson(Person person, UriComponentsBuilder ucb) {
         Person savedPerson = peopleService.createPerson(person);
@@ -44,6 +49,7 @@ public class PeopleController {
         return ResponseEntity.created(location).body(savedPerson);
     }
 
+    @Operation(summary = "Delete person by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePersonById(@PathVariable Integer id) {
         if (!peopleService.getPersonById(id).isPresent()) {
