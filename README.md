@@ -33,3 +33,11 @@ One thing to note is that when making POST requests, the server expects the inpu
 ## Database
 
 The database runs on <http://localhost:3306> and comes with an adminer microservice that runs on <http://localhost:8080> that makes queries to the databases much easier than using a local db client. The database credentials are `root` and `pass` and can be changed from the `.env` file.
+
+## Screenshots
+
+![](images/image1.png)
+![](images/image2.png)
+![](images/image3.png)
+![](images/image4.png)
+![](images/image5.png)
