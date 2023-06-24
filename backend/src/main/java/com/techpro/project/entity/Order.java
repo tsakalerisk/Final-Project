@@ -27,7 +27,7 @@ public class Order {
     @Column(name = "OrderID")
     private Integer id;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "PersonID")
     @JsonIgnoreProperties("orders")
     private Person person;

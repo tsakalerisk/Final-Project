@@ -38,10 +38,10 @@ public class ItemsController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createItem(Item item, UriComponentsBuilder ucb) {
+    public ResponseEntity<Item> createItem(Item item, UriComponentsBuilder ucb) {
         Item savedItem = itemService.createItem(item);
         URI location = ucb.path("/items/{id}").buildAndExpand(savedItem.getId()).toUri();
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(savedItem);
     }
 
     @DeleteMapping("/{id}")
