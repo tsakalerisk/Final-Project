@@ -7,6 +7,8 @@ import Transition from './components/Transition'
 import AdminPage from './components/AdminPage'
 import NavItem from './components/NavItem'
 import PeoplePage from './components/PeoplePage'
+import ItemsPage from './components/ItemsPage'
+import About from './components/About'
 
 function App() {
     return (
@@ -19,7 +21,7 @@ function App() {
                             element={
                                 <>
                                     <NavItem to="/">Products</NavItem>
-                                    <NavItem to="/about">Explore</NavItem>
+                                    <NavItem to="/about">About</NavItem>
                                 </>
                             }
                         />
@@ -29,6 +31,7 @@ function App() {
                                 <>
                                     <NavItem to="/admin/orders">Orders</NavItem>
                                     <NavItem to="/admin/people">People</NavItem>
+                                    <NavItem to="/admin/items">Items</NavItem>
                                 </>
                             }
                         />
@@ -39,6 +42,8 @@ function App() {
                         <Route index element={<HomePage />} />
                         <Route path="checkout" element={<Checkout />} />
                         <Route path="transition" element={<Transition />} />
+                        <Route path="about" element={<About />} />
+
                     </Route>
                     <Route path="/admin">
                         <Route
@@ -47,6 +52,7 @@ function App() {
                         />
                         <Route path="orders" element={<AdminPage />} />
                         <Route path="people" element={<PeoplePage />} />
+                        <Route path="items" element={<ItemsPage />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

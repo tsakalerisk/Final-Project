@@ -16,7 +16,7 @@ const Header = ({ children }: Props) => {
                     Final Project
                 </h1>
             </Link>
-            <nav>{children}</nav>
+            <nav className='navbar'>{children}</nav>
             <SearchBar />
         </div>
     )

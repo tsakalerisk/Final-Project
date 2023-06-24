@@ -59,6 +59,15 @@ const getPeople = async () => await fetchFromBackend('/people')
 const deletePerson = async (personId: number) =>
     await fetchFromBackend(`/people/${personId}`, { method: 'DELETE' })
 
+const deleteItem = async (itemId: number) =>
+    await fetchFromBackend(`/items/${itemId}`, { method: 'DELETE' })
+
+const postItem = async (item: FormData) =>
+    await fetchFromBackend('/items', {
+        method: 'POST',
+        body: item,
+    })
+
 export {
     getItems,
     postPerson,
@@ -67,5 +76,7 @@ export {
     getOrders,
     deleteOrder,
     getPeople,
-    deletePerson
+    deletePerson,
+    deleteItem,
+    postItem,
 }

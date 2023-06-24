@@ -1,23 +1,21 @@
 import Order from '../types/Order'
-import { AiFillDelete } from 'react-icons/ai'
 import './OrderCard.css'
+import DeleteButton from './DeleteButton'
 
 interface Props {
     order: Order
-    onDelete?(): void
+    onDelete(): void
 }
 
 const OrderCard = ({ order, onDelete }: Props) => {
     return (
         <div className="card relative text-left p-12 text-lg flex flex-col gap-4">
-            <button
-                className="absolute px-4 py-2 flex items-center gap-2 right-12 border-red-600 text-red-600
-                 hover:bg-red-600 hover:text-white transition-colors hover:border-transparent"
-                onClick={onDelete}
-            >
-                <AiFillDelete />
-                Delete order
-            </button>
+            <DeleteButton
+                message="Delete order"
+                confirmMessage="Are you sure you want to delete this order?"
+                onDelete={onDelete}
+                className="absolute"
+            />
             <div>
                 <div className="text-2xl font-bold">Order #{order.id}</div>
                 <div className="text-sm">{order.dateTime}</div>
