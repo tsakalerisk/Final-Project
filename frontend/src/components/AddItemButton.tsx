@@ -48,7 +48,7 @@ const AddItemButton = ({ className, onAdd }: Props) => {
                     </div>
                     <div>
                         <label htmlFor="price">Price</label>
-                        <input type="number" name="price" step={0.1} id="price" required/>
+                        <input type="number" name="price" step={0.01} id="price" required/>
                     </div>
                     <div>
                         <label htmlFor="imageUrl">Image URL</label>

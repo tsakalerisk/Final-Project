@@ -5,20 +5,19 @@ import { useLocation, useNavigate } from 'react-router-dom'
 let intervalId: number | undefined = undefined
 
 const Transition = () => {
-    const { orderId } = useLocation().state
     const navigate = useNavigate()
+    const orderId = useLocation().state?.orderId || navigate('/')
     const [progress, setProgress] = useState(0)
     useEffect(() => {
+        const start = Date.now()
         intervalId = setInterval(() => {
-            setProgress(prev => prev + 0.5)
-        }, 20)
-        return () => {
-            clearInterval(intervalId)
-        }
+            const elapsed = Date.now() - start
+            setProgress(0.02 * elapsed)
+        }, 10)
+        return () => clearInterval(intervalId)
     }, [])
 
     useEffect(() => {
-        console.log(progress)
         if (progress >= 100) {
             clearInterval(intervalId)
             navigate('/')
@@ -29,7 +28,7 @@ const Transition = () => {
         <div className="">
             <div
                 className="h-1 bg-green-700"
-                style={{ width: `${progress}%` }}
+                style={{ width: `min(${progress}%, 100%)` }}
             ></div>
             <div className="flex flex-col gap-4 my-8">
                 <BsCheckCircle className="mx-auto text-[5rem]" />

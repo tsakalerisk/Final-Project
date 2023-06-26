@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Component;
 
 import com.techpro.project.entity.Person;
@@ -25,13 +27,16 @@ public class PeopleServiceImpl implements PeopleService {
     }
 
     @Override
+    // If person exists, return it. Otherwise, create it.
     public Person createPerson(Person person) {
-        return peopleRepository.save(person);
+        return peopleRepository
+                .findOne(Example.of(person, ExampleMatcher.matching().withIgnoreCase()))
+                .orElseGet(() -> peopleRepository.save(person));
     }
 
     @Override
     public void deletePersonById(Integer id) {
         peopleRepository.deleteById(id);
     }
-    
+
 }
