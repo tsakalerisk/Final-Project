@@ -3,7 +3,7 @@ import Person from '../types/Person'
 import { deletePerson, getPeople } from '../modules/api_calls'
 import PersonCard from './PersonCard'
 import { toast } from 'react-hot-toast'
-import AddPersonButton from './addPersonButton'
+import AddPersonButton from './AddPersonButton'
 
 const PeoplePage = () => {
     const [people, setPeople] = useState<Person[]>([])
