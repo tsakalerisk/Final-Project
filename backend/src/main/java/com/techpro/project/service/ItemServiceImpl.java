@@ -30,6 +30,16 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public Item updateItem(Integer id, Item item) {
+        if (itemsRepository.findById(id).isPresent()) {
+            item.setId(id);
+            return itemsRepository.save(item);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public void deleteItemById(Integer id) {
         itemsRepository.deleteById(id);
     }

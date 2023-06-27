@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
-import ItemModal from './ItemModal'
+import { AiOutlinePlus } from "react-icons/ai"
+import PersonModal from "./PersonModal"
+import { useState } from "react"
 
 interface Props {
     className?: string
     onAdd?(): void
 }
 
-const AddItemButton = ({ className, onAdd }: Props) => {
+const AddPersonButton = ({ className, onAdd }: Props) => {
     const [dialogOpen, setDialogOpen] = useState(false)
 
     return (
@@ -17,9 +17,9 @@ const AddItemButton = ({ className, onAdd }: Props) => {
                 onClick={() => setDialogOpen(true)}
             >
                 <AiOutlinePlus />
-                Add item
+                Add person
             </button>
-            <ItemModal
+            <PersonModal
                 open={dialogOpen}
                 onClose={() => setDialogOpen(false)}
                 onSubmit={onAdd}
@@ -28,4 +28,4 @@ const AddItemButton = ({ className, onAdd }: Props) => {
     )
 }
 
-export default AddItemButton
+export default AddPersonButton

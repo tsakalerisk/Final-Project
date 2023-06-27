@@ -33,7 +33,7 @@ public class Item {
     @Column(name = "ImageUrl", columnDefinition = "TEXT")
     private String imageUrl;
 
-    @OneToMany(mappedBy = "item", orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderDetail> orderDetails;
 }

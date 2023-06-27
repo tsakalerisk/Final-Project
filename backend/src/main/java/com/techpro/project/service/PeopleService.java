@@ -12,5 +12,6 @@ public interface PeopleService {
     public List<Person> getPeople();
     public Optional<Person> getPersonById(Integer id);
     public Person createPerson(Person person);
+    public Person updatePerson(Integer id, Person person);
     public void deletePersonById(Integer id);
 }

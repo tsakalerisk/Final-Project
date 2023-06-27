@@ -51,6 +51,16 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order updateOrder(Integer id, Order order) {
+        if (ordersRepository.findById(id).isPresent()) {
+            order.setId(id);
+            return ordersRepository.save(order);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public Order addItemToOrder(Integer orderId, Integer itemId, Integer quantity) throws NotFoundException {
         Order order = ordersRepository.findById(orderId).orElseThrow(() -> new NotFoundException("Order not found"));
         Item item = itemsRepository.findById(itemId).orElseThrow(() -> new NotFoundException("Item not found"));

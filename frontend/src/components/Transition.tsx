@@ -5,17 +5,20 @@ import { useLocation, useNavigate } from 'react-router-dom'
 let intervalId: number | undefined = undefined
 
 const Transition = () => {
+    const orderId = useLocation().state?.orderId
     const navigate = useNavigate()
-    const orderId = useLocation().state?.orderId || navigate('/')
     const [progress, setProgress] = useState(0)
     useEffect(() => {
+        if (!orderId) {
+            navigate('/')
+        }
         const start = Date.now()
         intervalId = setInterval(() => {
             const elapsed = Date.now() - start
             setProgress(0.02 * elapsed)
         }, 10)
         return () => clearInterval(intervalId)
-    }, [])
+    }, [orderId, navigate])
 
     useEffect(() => {
         if (progress >= 100) {

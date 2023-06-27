@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -41,12 +42,22 @@ public class ItemsController {
                 itemService.getItemById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
-    @Operation(summary = "Create/update item")
+    @Operation(summary = "Create item")
     @PostMapping
     public ResponseEntity<Item> createItem(Item item, UriComponentsBuilder ucb) {
         Item savedItem = itemService.createItem(item);
         URI location = ucb.path("/items/{id}").buildAndExpand(savedItem.getId()).toUri();
         return ResponseEntity.created(location).body(savedItem);
+    }
+
+    @Operation(summary = "Update item by id")
+    @PutMapping("/{id}")
+    public ResponseEntity<Item> updateItem(@PathVariable Integer id, Item item) {
+        Item updatedItem = itemService.updateItem(id, item);
+        if (updatedItem == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(updatedItem);
     }
 
     @Operation(summary = "Delete item by id")

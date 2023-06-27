@@ -9,10 +9,12 @@ import NavItem from './components/NavItem'
 import PeoplePage from './components/PeoplePage'
 import ItemsPage from './components/ItemsPage'
 import About from './components/About'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
     return (
         <div className="App bg-gray-200">
+            <Toaster position="bottom-left"/>
             <BrowserRouter>
                 <Header>
                     <Routes>
@@ -43,7 +45,6 @@ function App() {
                         <Route path="checkout" element={<Checkout />} />
                         <Route path="transition" element={<Transition />} />
                         <Route path="about" element={<About />} />
-
                     </Route>
                     <Route path="/admin">
                         <Route

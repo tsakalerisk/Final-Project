@@ -35,6 +35,16 @@ public class PeopleServiceImpl implements PeopleService {
     }
 
     @Override
+    public Person updatePerson(Integer id, Person person) {
+        if (peopleRepository.findById(id).isPresent()) {
+            person.setId(id);
+            return peopleRepository.save(person);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public void deletePersonById(Integer id) {
         peopleRepository.deleteById(id);
     }

@@ -68,6 +68,19 @@ const postItem = async (item: FormData) =>
         body: item,
     })
 
+const updateItem = async (itemId: number, item: FormData) => await fetchFromBackend(`/items/${itemId}`, { method: 'PUT', body: item })
+
+const updatePerson = async (personId: number, person: FormData) => await fetchFromBackend(`/people/${personId}`, { method: 'PUT', body: person })
+
+const updateOrder = async (orderId: number, personId: number) => {
+    const formData = new FormData()
+    formData.append('personId', personId.toString())
+    return await fetchFromBackend(`/orders/${orderId}`, {
+        method: 'PUT',
+        body: formData,
+    })
+}
+
 export {
     getItems,
     postPerson,
@@ -79,4 +92,7 @@ export {
     deletePerson,
     deleteItem,
     postItem,
+    updateItem,
+    updatePerson,
+    updateOrder
 }

@@ -12,5 +12,6 @@ public interface ItemService {
     public List<Item> getItems();
     public Optional<Item> getItemById(Integer id);
     public Item createItem(Item item);
+    public Item updateItem(Integer id, Item item);
     public void deleteItemById(Integer id);
 }
