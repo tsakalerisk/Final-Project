@@ -3,7 +3,7 @@
 ## Requirements:
 
 - Docker 🐋
-- Patience
+- Patience ⏳
 
 ## To run the project:
 
@@ -33,6 +33,10 @@ One thing to note is that when making POST requests, the server expects the inpu
 ## Database
 
 The database runs on <http://localhost:3306> and comes with an adminer microservice that runs on <http://localhost:8080> that makes queries to the databases much easier than using a local db client. The database credentials are `root` and `pass` and can be changed from the `.env` file.
+
+## Diagrams
+
+There two diagrams available in the "diagrams" directory, a general overview of the connection between the database, the backend, and frontend, and a diagram of the database schema.
 
 ## Screenshots
 
